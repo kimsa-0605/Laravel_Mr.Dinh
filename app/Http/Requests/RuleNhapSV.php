@@ -24,7 +24,7 @@ class RuleNhapSV extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'age' => 'nullable|numeric',
-            'date' => 'required|string',
+            'date' => 'required|date',
             'phone' => 'nullable|numeric',
             'web' => 'nullable|string',
             'address' => 'nullable|string'
@@ -38,7 +38,7 @@ class RuleNhapSV extends FormRequest
             'name.string' => 'Vui lòng điền tên cho đúng',
             'age.numeric' => 'Vui lòng nhập tuổi cho đúng',
             'date.required' => 'Ngày tháng không được để trống',
-            'date.string' => 'Vui lòng nhập ngày tháng hợp lệ',
+            'date.date' => 'Vui lòng nhập ngày tháng hợp lệ',
             'phone.numeric' => 'Vui lòng kiểm tra lại số điện thoại',
             'web.string' => 'Vui lòng nhập đường dẫn hợp lệ',
             'address.string' => 'Vui lòng nhập lại địa chỉ'
