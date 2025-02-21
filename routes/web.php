@@ -6,6 +6,8 @@ use App\Http\Controllers\SumController;
 use App\Http\Controllers\Vidu2Controller;
 use App\Http\Controllers\Vidu3Controller;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\CovidController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -33,3 +35,11 @@ Route::get('/form-them', function () {
 // Nhập sinh viên 
 Route::get('/nhapSV', [NhapSVController::class, 'index']); // Hiển thị form
 Route::post('/nhapSV', [NhapSVController::class, 'formNHapSV']); // Xử lý dữ liệu
+
+
+Route::post('/clear', function () {
+    session()->forget('userSession');
+    return redirect('/nhapSV');
+});
+
+Route::get('/covid-api', [CovidController::class, 'getData']); // Hiển thị form

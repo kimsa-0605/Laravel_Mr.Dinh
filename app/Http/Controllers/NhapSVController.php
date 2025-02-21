@@ -13,6 +13,7 @@ class NhapSVController extends Controller
     }
     public function formNHapSV(RuleNhapSV $request)
     {
+        $userSession = session('$userSession', []);
         $user = [
             'name' => $request->input('name'),
             'age' =>  $request->input('age'),
@@ -21,6 +22,8 @@ class NhapSVController extends Controller
             'web' => $request->input('web'),
             'address' => $request->input('address')
         ];
-        return view('nhapSVForm')->with('user',$user);
+        $userSession[] = $user;
+        session(['$userSession' => $userSession]);
+        return view('nhapSVForm')->with('user',$userSession);
     }
 }

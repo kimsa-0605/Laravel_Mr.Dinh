@@ -14,41 +14,56 @@
         <div class="form-group">
             <label>Name</label>
             <input type="text" class="form-control" name="name">
+            @error('name') <div class="error-message">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>Age</label>
             <input type="text" class="form-control" name="age">
+            @error('age') <div class="error-message">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>Date</label>
             <input type="date" class="form-control" name="date">
+            @error('date') <div class="error-message">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>Phone</label>
             <input type="text" class="form-control" name="phone">
+            @error('phone') <div class="error-message">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>Web</label>
             <input type="url" class="form-control" name="web">
+            @error('web') <div class="error-message">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>Address</label>
             <input type="text" class="form-control" name="address">
+            @error('address') <div class="error-message">{{ $message }}</div> @enderror
         </div>
-        <div>
+        <!-- <div>
             @include('block.error')
-        </div>
+        </div> -->
         <button type="submit" class="btn btn-primary" style="left: 200px;">OK</button>
         <div class="display-infor">
-            @if(isset($user))
-                <p>Name: {{ $user['name'] }}</p>
-                <p>Age: {{ $user['age'] }}</p>
-                <p>Date: {{ $user['date'] }} </p>
-                <p>Phone: {{ $user['phone'] }} </p>
-                <p>Website: {{ $user['web'] }} </p>
-                <p>Address: {{ $user['address'] }} </p>
+            @if (isset($user))
+                @foreach ($user as $users) 
+                    <div class="display-infor">
+                        <p>Name: {{ $users['name'] }}</p>
+                        <p>Age: {{ $users['age'] }}</p>
+                        <p>Date: {{ $users['date'] }} </p>
+                        <p>Phone: {{ $users['phone'] }} </p>
+                        <p>Website: {{ $users['web'] }} </p>
+                        <p>Address: {{ $users['address'] }} </p>
+                    </div>
+                @endforeach
             @endif
-        </div>
+        @if(session()->has('userSession'))
+            <form action="/clear" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-danger">Xóa</button>
+            </form>
+        @endif
     </form>
 </body>
 </html>
