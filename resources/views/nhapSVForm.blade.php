@@ -21,7 +21,7 @@
         </div>
         <div class="form-group">
             <label>Date</label>
-            <input type="text" class="form-control" name="date">
+            <input type="date" class="form-control" name="date">
         </div>
         <div class="form-group">
             <label>Phone</label>
@@ -44,9 +44,9 @@
                 <p>Name: {{ $user['name'] }}</p>
                 <p>Age: {{ $user['age'] }}</p>
                 <p>Date: {{ $user['date'] }} </p>
-                <p>Phone: {{ $user['date'] }} </p>
-                <p>Website: {{ $user['date'] }} </p>
-                <p>Address: {{ $user['date'] }} </p>
+                <p>Phone: {{ $user['phone'] }} </p>
+                <p>Website: {{ $user['web'] }} </p>
+                <p>Address: {{ $user['address'] }} </p>
             @endif
         </div>
     </form>
