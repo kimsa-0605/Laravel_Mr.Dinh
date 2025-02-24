@@ -43,3 +43,24 @@ Route::post('/clear', function () {
 });
 
 Route::get('/covid-api', [CovidController::class, 'getData']); // Hiển thị form
+
+use App\Http\Controllers\ProductController;
+
+// Route::get('/product', [ProductController::class, 'show']);
+// Route::get('/form', [ProductController::class, 'index']);
+// Route::post('/save', [ProductController::class, 'save']);
+
+
+// Thêm sửa xoá sản phẩm 
+// get
+Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+Route::get('/product/{id}', [ProductController::class, 'edit'])->name('product.edit');
+Route::get('/create-product', [ProductController::class, 'create'])->name('product.create');
+
+// post
+Route::post('/add-product', [ProductController::class, 'store'])->name('product.store');
+
+// put
+Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update');
+// Delete
+Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
