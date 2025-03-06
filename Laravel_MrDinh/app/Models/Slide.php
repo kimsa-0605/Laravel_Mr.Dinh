@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Products2 extends Model
+class Slide extends Model
 {
-    protected $table = 'products2';
-    /** @use HasFactory<\Database\Factories\ProductFactory> */
     use HasFactory;
+
+    protected $table = 'slide';
+
+    protected $fillable = ['link', 'image'];
 }
+
