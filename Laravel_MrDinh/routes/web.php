@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\TaoBangController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
@@ -21,3 +22,5 @@ Route::get('database', function() {
 
 
 Route::get('database-moi', [TaoBangController::class, 'taobang']);
+
+Route::get('/trangchu', [PageController::class, 'getIndex']);
