@@ -39,7 +39,7 @@
     <div id="default-carousel" class="relative w-full max-w-4xl mx-auto mt-10" data-carousel="slide">
         <!-- Carousel wrapper -->
         <div class="relative h-64 md:h-96 overflow-hidden rounded-lg shadow-lg">
-            @foreach ($sl as $index => $slide)
+            @foreach ($sl as $slide)
                 <div class="{{ $loop->first ? '' : 'hidden' }} duration-700 ease-in-out" data-carousel-item>
                     <img src="{{ asset('source/image/slide/' . $slide['image']) }}" 
                         class="absolute block w-full h-full object-cover top-0 left-0 rounded-lg shadow-xl" 
