@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Slide;
+use App\Models\TypeProduct;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -16,7 +18,15 @@ class PageController extends Controller
     }
     public function getProductType($type)  {
         $sp_theoloai= Product::where('id_type',$type)->get();	
-        return view('typeCakePage', compact('sp_theoloai'));
+        $loai_sp = TypeProduct::all();
+        return view('typeCake', compact('sp_theoloai', 'loai_sp'));
+    }
+
+    public function getProductDetail ($id) {
+        $products = Product::where('id',$id)->first();	
+        $splienquan = Product::where('id', '<>', $products->id)->where('id_type', '=', $products->id_type)->paginate(3);
+        $comments = Comment::where('id_product', $id)->get();
+        return view('detail', compact('products', 'splienquan', 'comments'));
     }
 }
 
