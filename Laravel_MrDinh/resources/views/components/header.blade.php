@@ -91,15 +91,15 @@
                 <nav class="main-menu">
                     <ul class="l-inline ov">
                         <li><a href="/cake">Trang chủ</a></li>
-                        <li><a href="#">Sản phẩm</a>
+                        <li><a href="/type-cake/1">Sản phẩm</a>
                             <ul class="sub-menu">
                                 @foreach ($loai_sp as $lsp)
                                     <li><a href="{{ route('type-cake', $lsp->id) }}">{{ $lsp->name }}</a></li>
                                 @endforeach
                             </ul>
-                        </li>
-                        <li><a href="about.html">Giới thiệu</a></li>
-                        <li><a href="contacts.html">Liên hệ</a></li>
+                        </li> 
+                        <li><a href="/about">Giới thiệu</a></li>
+                        <li><a href="/contact">Liên hệ</a></li>
                     </ul>
                     <div class="clearfix"></div>
                 </nav>
