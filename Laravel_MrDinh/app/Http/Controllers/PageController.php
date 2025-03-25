@@ -35,5 +35,10 @@ class PageController extends Controller
         $comments = Comment::where('id_product', $id)->get();
         return view('detail', compact('products', 'splienquan', 'comments'));
     }
+    public function searchProduct(Request $request) {
+        $value = $request->get('s');
+        $products = Product::where('name', 'like', '%'.$value.'%')->paginate(8);
+        return view('search', compact('products'));
+    }
 }
 
