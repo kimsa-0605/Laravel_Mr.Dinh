@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function showRegisterForm()
     {
-        return view('user.register');
+        return view('register');
     }
 
     public function register(Request $request)
@@ -34,12 +34,12 @@ class UserController extends Controller
         ]);
     
         // Chuyển hướng đến trang đăng nhập
-        return redirect()->route('user.login')->with('success', 'Đăng ký thành công, vui lòng đăng nhập.');
+        return redirect()->route('/login')->with('success', 'Đăng ký thành công, vui lòng đăng nhập.');
     }
     
     public function showLoginForm()
     {
-        return view('user.login');
+        return view('login');
     }
 
     // Xử lý đăng nhập
@@ -51,7 +51,7 @@ class UserController extends Controller
         ]);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('index')->with('success', 'Đăng nhập thành công.');
+            return redirect()->route('cake')->with('success', 'Đăng nhập thành công.');
         }
         
 

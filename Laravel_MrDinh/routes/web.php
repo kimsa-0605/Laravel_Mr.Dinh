@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 
 // Get
-Route::get('/cake', [PageController::class, 'getIndex']);
+Route::get('/cake', [PageController::class, 'getIndex'])->name('cake');
 Route::get('/type-cake/{type}', [PageController::class, 'getProductType'])->name('type-cake');
 Route::get('/product-detail/{id}', [PageController::class, 'getProductDetail']);
 Route::get('/about', function (){
@@ -27,12 +27,11 @@ Route::post('/admin/add', [AdminController::class, 'addProduct']);
 Route::post('/admin/edit/{id}', [AdminController::class, 'updateProduct']);
 Route::post('/admin/delete/{id}', [AdminController::class, 'deleteProduct']);
 Route::post('/product/search', [PageController::class, 'searchProduct']);
-Route::get('/login', [UserController::class, 'login']);
 
 
 // User
-Route::get('/register', [UserController::class, 'showRegisterForm'])->name('user.register');
-Route::post('/register', [UserController::class, 'register'])->name('user.register');
+Route::get('/register', [UserController::class, 'showRegisterForm']);
+Route::post('/register', [UserController::class, 'register']);
 
-Route::get('/login', [UserController::class, 'showLoginForm'])->name('user.login');
-Route::post('/login', [UserController::class, 'login'])->name('user.login');
+Route::get('/login', [UserController::class, 'showLoginForm']);
+Route::post('/login', [UserController::class, 'login']);

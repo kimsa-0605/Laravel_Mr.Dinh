@@ -1,9 +1,9 @@
-@extends('index')
+@extends('cake')
 
 @section('content')
 <div class="container">
     <div id="content">
-        <form action="{{ route('user.register') }}" method="post" class="beta-form-checkout">
+        <form action="/register" method="post" class="beta-form-checkout">
             @csrf
             <div class="row">
                 <div class="col-sm-3"></div>
